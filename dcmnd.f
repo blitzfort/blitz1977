@@ -13,8 +13,8 @@ c
       integer char(13)
       common /board/ board(120)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
-      common /colr cm/ color
+     *              inchk(30), givchk(30)
+      common /colrcm/ color
       common /buffer/ text(80)
       common /chrset/ alpha(46)
       equivalence (blank,alpha(44))

@@ -18,7 +18,7 @@ c     *  early in the move list in order to maximize the number of     *
 c     *  alpha/beta cutoffs.  it is based on the principle that most   *
 c     *  moves from a parent position can be refuted by the same       *
 c     *  move; whether the move is a capture, a fork, or simply a      *
-c     *  strong positional move such as claimimg an open file.  this   *
+c     *  strong positionalmove such as claimimg an open file.  this   *
 c     *  list will have up to ten such moves to help the program       *
 c     *  'learn' as it progresses through the search.                  *
 c     *                                                                *
@@ -29,7 +29,7 @@ c
       common /info/ from$, to$, type$, propc$, cappc$
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /depth/ sdepth, depth, ply
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /killmv/ killmv(20,30)
       common /window/ window(2)
 c

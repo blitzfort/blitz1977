@@ -13,18 +13,18 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical done, easy, check, in chk, giv chk
+      logical done, easy, check, inchk, givchk
       common /board/ board(120)
       common /info/ from$, to$, type$, propc$, cappc$
       common /depth/ sdepth, depth, ply
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /trcecm/ strace(32)
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /mscore/ sscore, mscore, pscore, tscore
-      common /piec cm/ pieces(6)
-      common /sort cm/ val(100)
+      common /pieccm/ pieces(6)
+      common /sortcm/ val(100)
       common /minmax/ minmax(2)
       common /easy/ easy, easyv
       common /hmove/ hmove
@@ -38,8 +38,8 @@ c
       player=1
       side=1
       depth=ply+1
-      in chk(1)=check(1)
-      giv chk(1)=.false.
+      inchk(1)=check(1)
+      givchk(1)=.false.
       call movgen
       if(return .ne. 0) go to 700
       end=last(1)
@@ -53,7 +53,7 @@ c
           from$=moves(where)
           tscore=-1000000000
           call extrct
-          call mover
+          callmover
           if(check(1)) go to 250
               if(moves(where) .ne. strace(1)) go to 150
                   tscore=100000000

@@ -15,12 +15,12 @@ c     ******************************************************************
 c
       implicit integer (a-z)
       common /board/ board(120)
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
       common /pawns/ pfirst(10), plast(10), pcount(10), ppass(10),
      *               ofirst(10), olast(10), ocount(10), opass(10),
      *               arank, afile
-      common /scor cm/ sign, square, rank, file
-      common /mov cnt/ npmovs, nomovs
+      common /scorcm/ sign, square, rank, file
+      common /movcnt/ npmovs, nomovs
       common /mscore/ sscore, mscore, pscore, tscore
 c
 c------------------------------< evaluate center tropism,

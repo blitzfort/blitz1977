@@ -17,10 +17,10 @@ c
       common /board/ board(120)
       common /depth/ sdepth, depth, ply
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /mscore/ sscore, mscore, pscore, tscore
-      common /move cm/ side, player, sqfrom, mpiece
+      common /movecm/ side, player, sqfrom, mpiece
       common /statcm/ nodes(30), times(30), aborts(30), tnodes, snodes,
      *                 hashes, pright
       common /minmax/ minmax(2)
@@ -28,13 +28,13 @@ c
      *               ofirst(10), olast(10), ocount(10), opass(10),
      *               arank, afile
       common /pieces/ nppwns, nppcs, pqueen, nopwns, nopcs, oqueen
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
-      common /scor cm/ sign, square, rank, file
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
+      common /scorcm/ sign, square, rank, file
       common /castcm/ pmoved(3,2), moved(3,35)
-      common /piec cm/ pieces(6)
-      common /colr cm/ color
+      common /pieccm/ pieces(6)
+      common /colrcm/ color
       common /types/ normal, castkg, castqn, enpass, promot
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
 c
 c------------------------------< initialize.
 c

@@ -11,8 +11,8 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
-      common /scor cm/ sign, square, rank, file
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
+      common /scorcm/ sign, square, rank, file
       common /mscore/ sscore, mscore, pscore, tscore
 c
 c------------------------------< evaluate king tropism.

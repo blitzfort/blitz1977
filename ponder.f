@@ -32,7 +32,7 @@ c
       implicit integer (a-z)
       logical cputim, cquery, temp, repchk
       logical tmode, smode, pndrng, foundm, matchd
-      logical in book, autos, eboard, englsh
+      logical inbook, autos, eboard, englsh
       logical check
       logical abort
       common /timecm/ gmoves, gelap, smoves, secap, surpls, cputim,
@@ -41,19 +41,19 @@ c
       common /mode/ tmode, smode, pndrng, foundm, matchd
       common /predcm/ ptext(30), pmove, ptype$, pfrom$, pto$
       common /depth/ sdepth, depth, ply
-      common /bookcm/ in book, key
+      common /bookcm/ inbook, key
       common /buffer/ text(80)
       common /board/ board(120)
       common /info/ from$, to$, type$,  propc$,  cappc$
-      common /move cm/ side, player, square, mpiece
-      common /prev mv/ prevmv(6)
+      common /movecm/ side, player, square, mpiece
+      common /prevmv/ prevmv(6)
       common /abort/ abort
       common /autos/ autos
       common /eboard/ eboard
-      common /typ ntn/ englsh
+      common /typntn/ englsh
       common /dup/ bdsave(1040), point
-      common /mov cnt/ npmovs, nomovs
-      common /chr set/ alpha(46)
+      common /movcnt/ npmovs, nomovs
+      common /chrset/ alpha(46)
       equivalence (o,alpha(15)),(colon,alpha(45)),(dash,alpha(38))
       common /return/ return
 c
@@ -62,7 +62,7 @@ c------------------------------< tournament mode, return. if there is
 c------------------------------< no predicted move or ponder has already
 c------------------------------< found a move, return also.
 c
-      if(foundm .or. in book) go to 9999
+      if(foundm .or. inbook) go to 9999
       if(pmove.eq.0 .or. .not.t mode) go to 9999
 c
 c------------------------------< remember predicted move
@@ -77,7 +77,7 @@ c
       side=-1
       player=2
       mtype=0
-      call mover
+      callmover
       if(check(1)) mtype=1
       call umover
       call output(mtype,board,.true.)

@@ -12,7 +12,7 @@ c     ******************************************************************
 c
       implicit integer (a-z)
       common /tree/ moves(2000), first(30), last(30),  which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /depth/ sdepth, depth, ply
       common /info/ from$, to$, type$, propc$, cappc$
       common /hmove/ hmove

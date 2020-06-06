@@ -11,7 +11,7 @@ c
       logical pmoved, moved, init
       integer piece(8)
       common /board/ board(120)
-      common /colr cm/ color
+      common /colrcm/ color
       common /castcm/ pmoved(3,2), moved(3,30)
       common /pfiles/ pfiles(10)
       data piece/4,2,3,5,6,3,2,4/

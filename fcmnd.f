@@ -12,23 +12,23 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical check, in book, repchk, rtemp, over
-      common /colr cm/ color
+      logical check, inbook, repchk, rtemp, over
+      common /colrcm/ color
       common /buffer/ text(80)
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /info/ from$, to$, type$, propc$, cappc$
       common /predcm/ ptext(30), pmove, ptype$, prom$, pto$
       common /types/ normal, castkg, castqn, enpass, promot
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /namecm/ name(5)
-      common /prev mv/ prevmv(6)
+      common /prevmv/ prevmv(6)
       common /depth/ sdepth, depth, ply
       common /trcecm/ strace(32)
-      common /l move/ lmovep, lmoveo
-      common /bookcm/ in book, key
+      common /lmove/ lmovep, lmoveo
+      common /bookcm/ inbook, key
       common /chrset/ alpha(46)
       equivalence (blank,alpha(44))
       common /over/ over
@@ -79,10 +79,10 @@ c
 c
 c------------------------------< determine if this forced move is
 c------------------------------< still part of a known book line. if
-c------------------------------< still 'in book', get the pointer to
+c------------------------------< still 'inbook', get the pointer to
 c------------------------------< the list of responses.
 c
-      if(.not. in book) return
+      if(.not. inbook) return
       key=key/10000
       read(3'key)(moves(i),i=1,40)
       fromsq=from$
@@ -99,7 +99,7 @@ c
           if(typemv.eq.castkg .or. typemv.eq.castqn) go to 70
           if(from$.eq.fromsq .and. to$.eq.tosq) go to 70
 60    continue
-      in book=.false.
+      inbook=.false.
       return
 70    continue
       key=key*10000+moves(i+20)

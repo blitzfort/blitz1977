@@ -20,19 +20,19 @@ c
       common /board/ board(120)
       common /bookcm/ bookcm(2)
       common /castcm/ castcm(96)
-      common /colr cm/ colrcm
+      common /colrcm/ colrcm
       common /depth/ depth(3)
       common /drawcm/ drawcm
       common /dup/ dup(1041)
       common /eval/ eval(2)
-      common /kill mv/ killmv(600)
+      common /killmv/ killmv(600)
       common /limits/ limits(2)
       common /lmove/ lmove(2)
       common /mode/ mode(5)
-      common /mov cnt/ movcnt(2)
+      common /movcnt/ movcnt(2)
       common /namecm/ namecm(5)
       common /predcm/ predcm(34)
-      common /prev mv/ prevmv(6)
+      common /prevmv/ prevmv(6)
       common /ratecm/ ratecm(2)
       common /ratio/ ratio
       common /savecm/ savecm(106)
@@ -40,9 +40,9 @@ c
       common /statcm/ statcm(94)
       common /timecm/ timecm(16)
       common /trcecm/ trcecm(32)
-      common /typ ntn/ typntn
+      common /typntn/ typntn
       common /window/ window(2)
-      common /chr set/ alpha(46)
+      common /chrset/ alpha(46)
       equivalence (alphan,alpha(14)),(alphay,alpha(25))
       common /buffer/ text(80)
       common /return/ return

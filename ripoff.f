@@ -20,7 +20,7 @@ c
       logical pqueen, oqueen
       common /board/ board(120)
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
 c
 c------------------------------< initialize.
 c

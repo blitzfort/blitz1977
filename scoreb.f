@@ -18,10 +18,10 @@ c
       implicit integer (a-z)
       common /board/ board(120)
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
-      common /mov cnt/ npmovs, nomovs
-      common /scor cm/ sign, square, rank, file
+      common /movcnt/ npmovs, nomovs
+      common /scorcm/ sign, square, rank, file
       common /mscore/ sscore, mscore, pscore, tscore
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
 c
 c------------------------------< add a bonus for each bishop found since
 c------------------------------< a bishop is worth more than a knight

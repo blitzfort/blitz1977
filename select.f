@@ -6,7 +6,7 @@ c     *      select is used to select the next move to be examined by  *
 c     *  'search'.  the move selection process is executed in several  *
 c     *  phases:                                                       *
 c     *                                                                *
-c     *      phase 1 : if all moves at previous levels are part        *
+c     *      phase 1 : if allmoves at previous levels are part        *
 c     *              of the principle variation from the previous      *
 c     *              iteration, try the corresponding move at this     *
 c     *              level if it exists.                               *
@@ -36,13 +36,13 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical cputim,  cquery, in chk, giv chk, abort
+      logical cputim,  cquery, inchk, givchk, abort
       logical easy, mated
       logical tmode, smode, pndrng, foundm, matchd
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
-      common /phas cm/ phase(30), status(30)
+      common /phascm/ phase(30), status(30)
       common /info/ from$, to$, type$, propc$, cappc$
       common /depth/ sdepth, depth, ply
       common /limits/ fdepth, ftime
@@ -58,7 +58,7 @@ c
      *                 hashes, pright
       common /ctime/ dnodes, xnodes
       common /mated/ mated(30)
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /return/ return
 c
 c------------------------------< first make sure that there are some
@@ -190,9 +190,9 @@ c
       if(return .ne. 0) go to 9999
       phase(ply)=4
       status(ply)=0
-      if(in chk(ply)) go to 4000
+      if(inchk(ply)) go to 4000
       if(ply .le. depth) go to 4000
-      if(giv chk(ply)) go to 4500
+      if(givchk(ply)) go to 4500
           phase(ply)=0
           go to 9998
 c

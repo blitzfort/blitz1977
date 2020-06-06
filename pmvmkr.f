@@ -47,7 +47,7 @@ c
 c
 c------------------------------< make the move.
 c
-      call mover
+      callmover
 c
 c------------------------------< then determine what castling status
 c------------------------------< has changed and set the appropriate

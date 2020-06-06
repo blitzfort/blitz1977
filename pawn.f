@@ -20,15 +20,15 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical in chk, giv chk
+      logical inchk, givchk
       common /board/ board(120)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /depth/ sdepth, depth, ply
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
-      common /prev mv/ prevmv(6)
-      common /move cm/ side, player, square,  mpiece
+      common /prevmv/ prevmv(6)
+      common /movecm/ side, player, square,  mpiece
       common /types/ normal, castkg, castqn, enpass, promot
       common /return/ return
 c
@@ -37,7 +37,7 @@ c
       lim=27
       if(side.gt.0 .and. square.lt.40) lim=28
       if(side.lt.0 .and. square.gt.80) lim=28
-      if(ply.le.depth .or. in chk(ply) .or. giv chk(ply)) go to 10
+      if(ply.le.depth .or. inchk(ply) .or. givchk(ply)) go to 10
           lim=26
           if(side.gt.0 .and. square.gt.80) lim=27
           if(side.lt.0 .and. square.lt.40) lim=27

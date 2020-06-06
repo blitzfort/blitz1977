@@ -17,8 +17,8 @@ c
       logical englsh
       common /info/ from$, to$, type$, propc$, cappc$
       common /buffer/ text(80)
-      common /red cm/ saver(30)
-      common /typ ntn/ englsh
+      common /redcm/ saver(30)
+      common /typntn/ englsh
       common /chrset/ alpha(46)
       equivalence (blank,alpha(44)),(minus,alpha(38)),
      * (zero,alpha(27)),(nine,alpha(36)),(p,alpha(16)),

@@ -23,14 +23,14 @@ c
       logical check, made, all
       common /board/ board(120)
       common /info/ from$, to$, type$, propc$, cappc$
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /statcm/ nodes(30), times(30), aborts(30), tnodes, snodes,
      *                 hashes, pright
       common /timecm/ gmoves, gelap, smoves, selap, surpls, cputim,
      *                 cquery, pelap, oelap, psec1, psec2, osec1,
      *                 osec2, avgtim, expect, fsec1
       common /depth/ sdepth, depth, ply
-      common /mov cnt/ npmovs,nomovs
+      common /movcnt/ npmovs,nomovs
       common /buffer/ text(80)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /trcecm/ strace(32)
@@ -139,7 +139,7 @@ c
           side=-side
           player=2-mod(ply,2)
           etype$=0
-          call mover
+          callmover
           if(check(-side)) etype$=1
           call output(etype$,board,.true.)
           if(ply .eq. matply) etype$=2
@@ -167,7 +167,7 @@ c
 90        continue
           from(ply)=from$
           to(ply)=to$
-          call mover
+          callmover
 100   continue
 c
 c------------------------------< output the buffer if anything is

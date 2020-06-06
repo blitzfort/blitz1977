@@ -2,23 +2,23 @@
 c
 c     ******************************************************************
 c     *                                                                *
-c     *      phase 5 is used to select all moves that are left in      *
+c     *      phase 5 is used to select allmoves that are left in      *
 c     *  the move list after phases 1, 2, 3 and 4 have been            *
 c     *  executed.                                                     *
 c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical mated, in chk, giv chk
+      logical mated, inchk, givchk
       logical checks
       logical check, ctemp
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30),giv chk(30)
+     *              inchk(30),givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
-      common /phas cm/ phase(30), status(30)
+      common /phascm/ phase(30), status(30)
       common /depth/ sdepth, depth, ply
       common /info/ from$, to$, type$, propc$, cappc$
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /mated/ mated(30)
       common /mscore/ sscore, mscore, pscore, tscore
       common /minmax/ minmax(2)
@@ -51,10 +51,10 @@ c------------------------------< plies, ignore this move as hopeless
 c
           if(ply .ne. depth) go to 400
           if(mated(ply)) go to 400
-          if(in chk(ply)) go to 400
+          if(inchk(ply)) go to 400
               call extrct
               if(cappc$ .ne. 0) go to 500
-              call mover
+              callmover
               ctemp=check(-side)
               call umover
               if(ctemp) go to 500
@@ -80,8 +80,8 @@ c------------------------------< determine if only moves that give
 c------------------------------< check should be considered. if so,
 c------------------------------< eliminate all others.
 c
-      if(.not. giv chk(ply)) go to 500
-          call mover
+      if(.not. givchk(ply)) go to 500
+          callmover
           ctemp=check(-side)
           call umover
           if(.not. ctemp) go to 200

@@ -22,9 +22,9 @@ c
      *                 osec2,  avgtim, expect, fsec1
       common /depth/ sdepth, depth, ply
       common /limits/ fdepth,  ftime
-      common /move cm/ side, player, sqfrom, mpiece
-      common /mov cnt/ npmovs, nomovs
-      common /typ ntn/ englsh
+      common /movecm/ side, player, sqfrom, mpiece
+      common /movcnt/ npmovs, nomovs
+      common /typntn/ englsh
       common /mode/ tmode, smode, pndrng, foundm, matchd
       common /chrset/ alpha(46)
       equivalence (a,alpha(1)),(b,alpha(2)),(c,alpha(3)),
@@ -37,7 +37,7 @@ c
      *(quest,alpha(43))
       common /mscore/ sscore,  mscore, pscore, tscore
       common /namecm/ name(5)
-      common /draw cm/ drawsc
+      common /drawcm/ drawsc
       common /eval/ eval,  peval
       common /autos/ autos
       common /beep/ beep
@@ -126,7 +126,7 @@ c
      *1x,'desired just so it is not ambiguous.'/
      *1x,'algebraic notation can be used if desired.  if '/
      *1x,'moves are entered in algebraic, the program will'/
-     *1x,'use algebraic for output also. normal moves are'/
+     *1x,'use algebraic for output also. normalmoves are'/
      *1x,'entered as nb1-c3 (n-qb3 for white). to indicate'/
      *1x,'captures, use a '':'' or ''x'' such as nc3:e4'/)
       go to 9998

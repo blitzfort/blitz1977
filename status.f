@@ -27,7 +27,7 @@ c
       logical abort, autos
       common /depth/ sdepth, depth, ply
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /info/ from$, to$, type$, propc$, cappc$
       common /timecm/ gmoves, gelap, smoves, selap,  surpls, cputim,
@@ -41,9 +41,9 @@ c
       common /buffer/ text(80)
       common /broke/ broke
       common /abort/ abort
-      common /chr set/ alpha(46)
+      common /chrset/ alpha(46)
       common /ratio/ ratio
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /autos/ autos
       common /eboard/ eboard, lbrack, rbrack
       equivalence (blank,alpha(44)), (alphao,alpha(15)),

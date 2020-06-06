@@ -2,19 +2,19 @@
 c
 c     ******************************************************************
 c     *                                                                *
-c     *      movgen is used to generate all moves.  it acts as a       *
-c     *  driver for the individual move generators.  the entire board  *
+c     *      movgen is used to generate allmoves.  it acts as a       *
+c     *  driver for the individualmove generators.  the entire board  *
 c     *  is scanned and as a piece for the side on move is detected,   *
 c     *  the correct generator is called.                              *
 c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical pmoved, moved, in chk, giv chk
+      logical pmoved, moved, inchk, givchk
       common /board/ board(120)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
-      common /move cm/ side, player, square, mpiece
+     *              inchk(30), givchk(30)
+      common /movecm/ side, player, square, mpiece
       common /depth/ sdepth, depth, ply
       common /castcm/ pmoved(3,2), moved(3,30)
       common /return/ return
@@ -44,7 +44,7 @@ c
 c
 c------------------------------< scan the entire board to find all
 c------------------------------< pieces of the side to move.  gen-
-c------------------------------< erate and score all moves for them.
+c------------------------------< erate and score allmoves for them.
 c
       do 2000 square=22,99
           mpiece=side*board(square)

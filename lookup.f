@@ -35,21 +35,21 @@ c
       logical mated
       logical tf(2)
       common /board/ board(120)
-      common /hash cm/ random(100,13), hboard
+      common /hashcm/ random(100,13), hboard
       common /htable/ hsize, htable(32768)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /trace/ trace(32,30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /depth/ sdepth, depth, ply
-      common /move cm/ side, player, square, mpiece
-      common /mov cnt/ npmovs, nomovs
+      common /movecm/ side, player, square, mpiece
+      common /movcnt/ npmovs, nomovs
       common /hmove/ hmove
       common /statcm/ nodes(30), times(30), aborts(30), tnodes, snodes,
      *                 hashes, pright
       common /mated/ mated(30)
       common /window/ window(2)
-      common /prev mv/ prevmv(6)
+      common /prevmv/ prevmv(6)
       common /return/ return
       data tf / .false., .true. /
 c
@@ -159,7 +159,7 @@ c
       go to 9998
 c
 c------------------------------< the current position has been found.
-c------------------------------< however, in this position, all moves
+c------------------------------< however, in this position, allmoves
 c------------------------------< for the side on move were pruned
 c------------------------------< causing the applicable search bound
 c------------------------------< to be backed up. if the bound has

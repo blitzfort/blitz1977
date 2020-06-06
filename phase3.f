@@ -14,13 +14,13 @@ c
       logical done
       common /board/ board(120)
       common /tree/  moves(2000), first(30), last(30), which(30),
-     *              in chk(30),  giv chk(30)
-      common /phas cm/ phase(30),  status(30)
+     *              inchk(30),  givchk(30)
+      common /phascm/ phase(30),  status(30)
       common /depth/ sdepth, depth, ply
       common /info/  from$, to$,  type$, propc$,  cappc$
-      common /move cm/ side, player, square, mpiece
-      common /piec cm/ pieces(6)
-      common /sort cm/ val(100)
+      common /movecm/ side, player, square, mpiece
+      common /pieccm/ pieces(6)
+      common /sortcm/ val(100)
       common /return/  return
 c
 c------------------------------< if this is the first entry for this
@@ -53,7 +53,7 @@ c------------------------------< the piece is defended, subtract
 c------------------------------< the value of the capturing piece.
 c
           call extrct
-          call mover
+          callmover
           score=min0(0,-ripoff(to$))
           if(cappc$ .ne. 0) score=score+pieces(cappc$)
           if(propc$ .ne. 0) score=score+pieces(propc$)

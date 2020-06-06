@@ -18,26 +18,26 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical in book
+      logical inbook
       logical over
       logical keyin, repchk, rtemp
       common /buffer/ text(80)
-      common /mov cnt/ npmovs, nomovs
-      common /colr cm/ color
+      common /movcnt/ npmovs, nomovs
+      common /colrcm/ color
       common /depth/ sdepth, depth, ply
       common /trcecm/ strace(32)
-      common /l move/ lmovep, lmoveo
+      common /lmove/ lmovep, lmoveo
       common /info/ from$, to$, type$, propc$,  cappc$
       common /predcm/ ptext(30), pmove, ptype$,  pfrom$,  pto$
-      common /bookcm/ in book, key
+      common /bookcm/ inbook, key
       common /over/ over
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /dup/ bdsave(1040), point
       common /timecm/ gmoves, gelap, smoves,  selap, surpls,  cputim,
      *                 cquery, pelap, oelap, psec1,  psec2, osec1,
      *                 osec2, avgtim, expect,  fsec1
-      common /chr set/ alpha(46)
-      common /prev mv/ prev mv(6)
+      common /chrset/ alpha(46)
+      common /prevmv/ prevmv(6)
       common /return/ return
       equivalence (k,alpha(11)),(y,alpha(25)),(blank,alpha(44))
       data zero / 0 /
@@ -50,7 +50,7 @@ c
       if(text(3) .eq. blank) temp=4
       moveno=scanin(temp)
       if(moveno .eq. 0) return
-      in book=.false.
+      inbook=.false.
       over=.false.
       do 3 i=1,1040
           bdsave(i)=0

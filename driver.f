@@ -24,32 +24,32 @@ c
       real ratio, newr, diff, ravg
       logical tmode, smode, pndrng, foundm, matchd
       integer fudge(2)
-      logical in book, easy
+      logical inbook, easy
       common /board/ board(120)
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
       common /depth/ sdepth, depth, ply
       common /limits/  fdepth,  ftime
-      common /move cm/ side, player, square,  mpiece
+      common /movecm/ side, player, square,  mpiece
       common /tree/ moves(2000),  first(30), last(30),  which(30),
-     *              in chk(30),  giv chk(30)
+     *              inchk(30),  givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /timecm/ gmoves, gelap,  smoves, selap,  surpls, cputim,
      *                 cquery, pelap,  oelap,  psec1,  psec2,  osec1,
      *                 osec2,  avgtim, expect,  fsec1
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /trace/ trace(32,30)
       common /tflag/ tflag
       common /easy/ easy, easyv
-      common /trce  cm/ strace(32)
+      common /trcecm/ strace(32)
       common /window/  window(2)
       common /abort/ abort
       common /ratio/ ratio
       common /mscore/ sscore, mscore, pscore, tscore
-      common /bookcm/ in book, key
+      common /bookcm/ inbook, key
       common /statcm/ nodes(30),times(30), aborts(30), tnodes, snodes,
      *                 hashes, pright
       common /mode/ tmode, smode, pndrng, foundm, matchd
-      common /chr set/ alpha(46)
+      common /chrset/ alpha(46)
       equivalence (aster,alpha(40)),(blank,alpha(44))
       common /eval/ eval, peval
       common /autos/ autos
@@ -75,7 +75,7 @@ c------------------------------< known book analysis. if so,
 c------------------------------< extract the next book move and
 c------------------------------< return.
 c
-      if(.not. in book) go to 85
+      if(.not. inbook) go to 85
           call book
           if(return .ne. 0) go to 9999
 85    continue
@@ -123,7 +123,7 @@ c
 101   format(/1x,'target:',f7.2,' for',i3,' moves',t13,':')
       fsec1=time()
 c
-c------------------------------< if there is only one legal move
+c------------------------------< if there is only one legalmove
 c------------------------------< that can be made, there is no
 c------------------------------< need to waste time by doing a
 c------------------------------< tree search.

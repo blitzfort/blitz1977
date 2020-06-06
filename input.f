@@ -8,9 +8,9 @@ c     *  accept standard english descriptive notation (ie p-k4) , or   *
 c     *  it will accept algebraic notation (nb1-c3).  it will allow    *
 c     *  the user to enter the move using the minimum amount of        *
 c     *  qualification necessary to eliminate ambiguity.  it does      *
-c     *  this by generating all legal moves and using the input text   *
+c     *  this by generating all legalmoves and using the input text   *
 c     *  to eliminate incorrect moves.  for example, 'p-5' would       *
-c     *  eliminate all moves but pawn moves to the 5th rank.  if       *
+c     *  eliminate allmoves but pawn moves to the 5th rank.  if       *
 c     *  only one move is left, the move is accepted; otherwise, the   *
 c     *  'ambiguous' error message is printed to force the operator    *
 c     *  to further qualify the move.  only two forms of algebraic     *
@@ -28,17 +28,17 @@ c
       integer sqfrom(200),sqto(200),fpiece(200),tpiece(200)
       integer digits(9)
       logical check, ep, pnprom, error, chk
-      logical englsh, in chk, giv chk
+      logical englsh, inchk, givchk
       integer sides(2)
       common /board/ board(120)
-      common /move cm/ side, player, square,  mpiece
+      common /movecm/ side, player, square,  mpiece
       common /info/ from$, to$, type$, propc$, cappc$
-      common /colr cm/ color
+      common /colrcm/ color
       common /depth/ sdepth, depth, ply
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
-      common /prev mv/ prevmv(6)
+      common /prevmv/ prevmv(6)
       equivalence (sqfrom(1),moves(201)),(sqto(1),moves(401)),
      *(fpiece(1),moves(601)),(tpiece(1),moves(801))
       common /buffer/ text(80)
@@ -49,7 +49,7 @@ c
      *(alphao,alpha(15)),(alphap,alpha(16)),(alphax,alpha(24)),
      *(alphae,alpha(5)),(blank,alpha(44)),(digits(1),alpha(28)),
      *(plus,alpha(37)),(colon,alpha(45))
-      common /typ ntn/ englsh
+      common /typntn/ englsh
       common /return/ return
       data pieces/'p','n','b','r','q','k'/
       data files/'r','n','b','q','k'/
@@ -78,7 +78,7 @@ c
       pnprom=.false.
       chk=.false.
 c
-c------------------------------< generate all legal moves
+c------------------------------< generate all legalmoves
 c------------------------------< and load for elimination
 c
       from(1)=prevmv(1)
@@ -90,7 +90,7 @@ c
       side=sides(player)
       tempd=depth
       depth=ply+1
-      in chk(ply)=check(side)
+      inchk(ply)=check(side)
       call movgen
       istop=last(ply)-1000
       first(ply)=tempf
@@ -121,7 +121,7 @@ c     *        ' df=',i2,' dr=',i2)
 
 
 
-          call mover
+          callmover
           if(check(side)) sqfrom(i)=0
           call umover
 155   continue
@@ -356,7 +356,7 @@ c
      *        (type$.ne.promot .or. ppiece.ne.propc$)) sqfrom(i)=0
 10    continue
 c
-c------------------------------< eliminate all moves except
+c------------------------------< eliminate allmoves except
 c------------------------------< moves of correct piece
 c
 7000  continue
@@ -374,7 +374,7 @@ c
           if(tpiece(i) .ne. 0) sqfrom(i)=0
 12    continue
 c
-c------------------------------< eliminate all moves except
+c------------------------------< eliminate allmoves except
 c------------------------------< moves on correct side of board
 c
       do 14 i=1,istop
@@ -387,7 +387,7 @@ c
           if(t .ne. dfileq) sqfrom(i)=0
 14    continue
 c
-c------------------------------< eliminate all moves except
+c------------------------------< eliminate allmoves except
 c------------------------------< moves on correct files
 c
       do 16 i=1,istop
@@ -400,7 +400,7 @@ c
           if(t.ne.dfile .and. t.ne.11-dfile) sqfrom(i)=0
 16    continue
 c
-c------------------------------< eliminate all moves except
+c------------------------------< eliminate allmoves except
 c------------------------------< those on the correct rank
 c
       do 18 i=1,istop
@@ -413,14 +413,14 @@ c
           if(t .ne. drank) sqfrom(i)=0
 18    continue
 c
-c------------------------------< eliminate all moves but checks
+c------------------------------< eliminate allmoves but checks
 c------------------------------< if so indicated.
 c
       if(.not.chk) go to 189
       do 185 i=1,istop
           from$=moves(i+1000)
           call extrct
-          call mover
+          callmover
           if(.not. check(-side)) go to 184
           call umover
           go to 185
@@ -535,7 +535,7 @@ c
       return
 102   if(.not. error) go to 1021
       print 202
-202   format(1x,'illegal move')
+202   format(1x,'illegalmove')
 1021  continue
       return=1
       return

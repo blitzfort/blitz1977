@@ -12,8 +12,8 @@ c
       implicit integer (a-z)
       logical attack
       common /board/ board(120)
-      common /move cm/ side, player, square, mpiece
-      common /k loc cm/ kingl(3,2)
+      common /movecm/ side, player, square, mpiece
+      common /kloc/ kingl(3,2)
 c
 c------------------------------< first, locate the king.
 c

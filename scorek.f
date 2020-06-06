@@ -21,15 +21,15 @@ c
       common /board/ board(120)
       common /depth/ sdepth, depth, ply
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
-      common /scor cm/ sign, square, rank, file
+      common /scorcm/ sign, square, rank, file
       common /pawns/ pfirst(10), plast(10), pcount(10), ppass(10),
      *               ofirst(10), olast(10), ocount(10), opass(10),
      *               arank, afile
       common /castcm/ pmoved(3,2), moved(3,30)
       common /pieces/ nppwns, nppcs, pqueen, nopwns, nopcs, oqueen
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /mscore/ sscore, mscore, pscore, tscore
       common /types/ normal, castkg, castqn, enpass, promot

@@ -14,7 +14,7 @@ c     ******************************************************************
 c
       implicit integer (a-z)
       common /ratecm/ prate, orate
-      common /draw cm/ drawsc
+      common /drawcm/ drawsc
       common /buffer/ text(80)
       common /chrset/ alpha(46)
       equivalence (d,alpha(4))

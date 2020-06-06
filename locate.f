@@ -17,9 +17,9 @@ c
       common /pawns/ pfirst(10), plast(10), pcount(10), ppass(10),
      *               ofirst(10), olast(10), ocount(10), opass(10),
      *               arank, afile
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
       common /pieces/ nppwns, nppcs, pqueen, nopwns, nopcs, oqueen
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
 c
 c------------------------------< first, analyze the pawn structure to
 c------------------------------< determine the following factors:

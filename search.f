@@ -27,18 +27,18 @@ c
       logical mated
       logical abort
       logical broke
-      logical in chk, giv chk
+      logical inchk, givchk
       integer tab(30), fmt(12)
       logical check, repchk
       common /board/ board(120)
       common /mscore/ sscore, mscore, pscore, tscore
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /killmv/ killmv(20,30)
-      common /phas cm/ phase(30), stats(30)
+      common /phascm/ phase(30), stats(30)
       common /depth/ sdepth, depth, ply
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /info/ from$, to$, type$, propc$, cappc$
       common /types/ normal, castkg, castqn, enpass, promot
       common /trace/ trace(32,30)
@@ -48,7 +48,7 @@ c
       common /mated/ mated(30)
       common /window/ window(2)
       common /abort/ abort
-      common /draw cm/ drawsc
+      common /drawcm/ drawsc
       common /buffer/ text(80)
       common /broke/ broke
       common /minmax/ minmax(2)
@@ -92,7 +92,7 @@ c
 6655      continue
           if(broke .and. side.eq.1) call status
 c
-c------------------------------< generate all moves from the current
+c------------------------------< generate allmoves from the current
 c------------------------------< board position, set the indicator
 c------------------------------< that controls checks in the quiscence
 c------------------------------< search if all previous moves were
@@ -100,8 +100,8 @@ c------------------------------< also checks. remember if the side
 c------------------------------< to move is in check.
 c
           if(ply .eq. 1) go to 100
-              giv chk(ply)=.false.
-              in chk(ply)=check(side)
+              givchk(ply)=.false.
+              inchk(ply)=check(side)
               if(ply .gt. depth) call mater
               call movgen
               if(return .ne. 0) go to 81
@@ -114,7 +114,7 @@ c
               which(ply)=0
 100       continue
           first(ply+1)=last(ply)+1
-          mated(ply)=ply.le.depth .or. in chk(ply)
+          mated(ply)=ply.le.depth .or. inchk(ply)
 c
 c------------------------------< determine if terminal node scoring
 c------------------------------< should be done. if below the basic
@@ -129,7 +129,7 @@ c------------------------------< 'stand pat' and accept the current
 c------------------------------< score as the best that can happen.
 c
 2000      continue
-              if(ply.le.depth .or. in chk(ply)) go to 210
+              if(ply.le.depth .or. inchk(ply)) go to 210
 c
 c------------------------------< now determine if the material score
 c------------------------------< will cause an alpha/beta cutoff without
@@ -199,12 +199,12 @@ c
               fmt(2)=tab(ply)
               write(6,fmt)ply,(text(ix),ix=1,20),phase(ply),value(ply)
 203       continue
-          call mover
+          callmover
 c
 c------------------------------< if in check, make sure each move
 c------------------------------< is legal to save time later.
 c
-          if(.not. in chk(ply)) go to 204
+          if(.not. inchk(ply)) go to 204
               if(.not. check(side)) go to 204
                   call umover
                   go to 2000
@@ -215,7 +215,7 @@ c------------------------------< earlier in this or previous search,
 c------------------------------< if so, consider it a drawn position
 c------------------------------< and evaluate no deeper.
 c
-          if(in chk(ply) .or. giv chk(ply)) go to 205
+          if(inchk(ply) .or. givchk(ply)) go to 205
               if(ply .gt. depth) go to 1
 205       continue
           if(.not. repchk(count)) go to 1
@@ -247,8 +247,8 @@ c
       call umover
       go to 2000
 c
-c------------------------------< all moves this level have been
-c------------------------------< examined. if no legal moves were
+c------------------------------< allmoves this level have been
+c------------------------------< examined. if no legalmoves were
 c------------------------------< found, the side to move has been
 c------------------------------< mated or stalemated....report the
 c------------------------------< correct score. otherwise, backup
@@ -290,7 +290,7 @@ c
 1801  continue
       go to 2000
 c
-c------------------------------< no legal moves were generated for
+c------------------------------< no legalmoves were generated for
 c------------------------------< the current level. it is either
 c------------------------------< checkmate or stalemate. set the
 c------------------------------< correct score before backing up.

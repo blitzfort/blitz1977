@@ -17,7 +17,7 @@ c
       real rannum
       integer rannumi
       equivalence (rannum, rannumi)
-      common /hash cm/ random(1300), hboard
+      common /hashcm/ random(1300), hboard
       common /htable/ hsize, htable(32768)
 c
 c------------------------------< initialize table of random numbers.

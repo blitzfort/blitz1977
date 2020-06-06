@@ -11,11 +11,11 @@ c     *        1)  count the number of checking moves that occurred    *
 c     *            for the side on move in the basic search (plies     *
 c     *            not greater than depth).                            *
 c     *                                                                *
-c     *        2)  make sure that all moves since the basic search     *
+c     *        2)  make sure that allmoves since the basic search     *
 c     *            ended are also checks, since the opposing side      *
 c     *            can simply 'stand pat' to avoid a mate if they      *
 c     *            are not;  if they are the opponent must try all     *
-c     *            legal moves to avoid mate;                          *
+c     *            legalmoves to avoid mate;                          *
 c     *                                                                *
 c     *        3)  count the number of non-capturing checks that have  *
 c     *            been included in the line under analysis;  if this  *
@@ -27,13 +27,13 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical in chk, giv chk
+      logical inchk, givchk
       common /depth/ sdepth, depth, ply
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
-      common /phas cm/ phase(30), stats(30)
-      common /move cm/ side, player, square, mpiece
+      common /phascm/ phase(30), stats(30)
+      common /movecm/ side, player, square, mpiece
       common /types/ normal, castkg, castqn, enpass, promot
 c
 c
@@ -41,7 +41,7 @@ c------------------------------< if the side on move is already in
 c------------------------------< check, then the search for this level
 c------------------------------< is exhaustive anyway,  return.
 c
-      if(in chk(ply)) go to 9999
+      if(inchk(ply)) go to 9999
 c
 c------------------------------< count the number of check that
 c------------------------------< occurred in the basic search.
@@ -51,7 +51,7 @@ c
           if(start .gt. end) go to 9999
               bcheck=0
               do 100 level=start,end,2
-                  if(in chk(level)) bcheck=bcheck+1
+                  if(inchk(level)) bcheck=bcheck+1
 100           continue
               if(bcheck .eq. 0) go to 9999
 c
@@ -67,7 +67,7 @@ c
               end=ply-1
               if(start .gt. end) go to 300
               do 200 level=start,end,2
-                  if(.not. in chk(level)) go to 9999
+                  if(.not. inchk(level)) go to 9999
 200           continue
 c
 c------------------------------< count the number of non-capturing
@@ -97,7 +97,7 @@ c------------------------------< there were in the basic search, then
 c------------------------------< examine all checks at this level.
 c
 500       continue
-          if(qcheck .lt. bcheck) giv chk(ply)=.true.
+          if(qcheck .lt. bcheck) givchk(ply)=.true.
 9999  continue
       return
       end

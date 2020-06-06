@@ -11,7 +11,7 @@ c
       implicit integer (a-z)
       common /buffer/ text(80)
       common /chrset/ alpha(46)
-      common /red cm/ saver(30)
+      common /redcm/ saver(30)
       equivalence (blank,alpha(44))
       common /return/ return
 c

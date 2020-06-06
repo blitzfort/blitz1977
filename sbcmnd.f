@@ -38,21 +38,21 @@ c     ******************************************************************
 c
       implicit integer(a-z)
       logical pmoved, moved, over
-      logical in book, repchk, rtemp
+      logical inbook, repchk, rtemp
       logical modify
       common /depth/ sdepth, depth, ply
-      common /colr cm/ color
+      common /colrcm/ color
       common /castcm/ pmoved(3,2), moved(3,30)
       common /board/ board(120)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /trcecm/ strace(32)
-      common /l move/ lmovep, lmoveo
+      common /lmove/ lmovep, lmoveo
       common /predcm/ ptext(30), pmove, ptype$, pfrom$, pto$
-      common /bookcm/ in book, key
+      common /bookcm/ inbook, key
       common /buffer/ text(80)
       common /dup/ bdsave(1040), point
-      common /chr set/ alpha(44)
+      common /chrset/ alpha(44)
       equivalence(o,alpha(15)),(x,alpha(24))
       equivalence(moves(900), input(1))
       common /over/ over
@@ -62,7 +62,7 @@ c
 c
 c------------------------------< initialize.
 c
-      in book=.false.
+      inbook=.false.
       over=.false.
       modify=text(3) .eq. 0
 9999  continue

@@ -2,7 +2,7 @@
 c
 c     ******************************************************************
 c     *                                                                *
-c     *      mover is used to make all moves on the game board,  it    *
+c     *      mover is used to make allmoves on the game board,  it    *
 c     *  saves the value of the 'to' square before making a move so    *
 c     *  that the move can be 'unmade' later.                          *
 c     *                                                                *
@@ -18,22 +18,22 @@ c
       implicit integer (a-z)
       logical pmoved, moved
       common /board/ board(120)
-      common /colr cm/ color
+      common /colrcm/ color
       common /depth/ sdepth, depth, ply
       common /info/ from$, to$, type$, propc$, cappc$
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /castcm/ pmoved(3,2), moved(3,30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /cbias/ cbias(2)
       common /mscore/ sscore, mscore, pscore, tscore
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
 c
 c------------------------------< initialize.
 c
       bias=cbias(player)
       go to (1,2,4,6,7),type$
 c
-c------------------------------< normal moves
+c------------------------------< normalmoves
 c
 1     continue
       cappc(ply)=board(to$)

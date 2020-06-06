@@ -26,7 +26,7 @@ c
       implicit integer (a-z)
       common /board/ board(120)
       common /mscore/ sscore, mscore, pscore, tscore
-      common /k loc cm/ pkingl, prank, pfile,  okinql, orank, ofile
+      common /kloc/ pkingl, prank, pfile,  okinql, orank, ofile
 c
 c------------------------------< determine the rank and file of
 c------------------------------< the winning and losing side and

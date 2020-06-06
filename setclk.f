@@ -15,8 +15,8 @@ c
       common /timecm/ gmoves, gelap, smoves, selap, surpls, cputim,
      *                 cquery, pelap, oelap, psec1, psec2, osec1,
      *                 osec2, avgtim, expect, fsec1
-      common /mov cnt/ npmovs, nomovs
-      common /chr set/ alpha(46)
+      common /movcnt/ npmovs, nomovs
+      common /chrset/ alpha(46)
       equivalence (alphad,alpha(4))
       common /buffer/ text(80)
       common /mode/ tmode, smode, pndrng, foundm, matchd

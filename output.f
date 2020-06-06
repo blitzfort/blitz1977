@@ -2,7 +2,7 @@
 c
 c     ******************************************************************
 c     *                                                                *
-c     *      output is used to convert the internal move format to     *
+c     *      output is used to convert the internalmove format to     *
 c     *  a text string so that it can be printed,  packer is a flag    *
 c     *  used to indicate whether (true) or not (false) to reduce the  *
 c     *  text string to it's simple8t form,  this reduction cannot     *
@@ -20,7 +20,7 @@ c
       integer board(120)
       common /info/ from$, to$, type$, propc$, cappc$
       common /depth/ sdepth, depth, ply
-      common /colr cm/ color
+      common /colrcm/ color
       common /types/ normal, castkg, castqn, enpass, promot
       common /chrset/ alpha(46)
       equivalence (rank(1),alpha(28)),(alphae,alpha(5)),
@@ -29,7 +29,7 @@ c
      *(equal,alpha(41)),(blank,alpha(44)),(colon,alpha(45)),
      *(dash,alpha(38))
       common /buffer/ text(80)
-      common /typ ntn/ englsh
+      common /typntn/ englsh
       data file /'r','n','b',' ',' ','b','n','r'/
       data pieces /'p','n','b','r','q','k'/
 c

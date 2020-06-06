@@ -13,10 +13,10 @@ c
       implicit integer (a-z)
       real relap1, relap2
       integer buf1(30), buf2(30), format(20), digits(40), lim(5)
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
-      common /colr cm/ color
+     *              inchk(30), givchk(30)
+      common /colrcm/ color
       equivalence (buf1(1),moves(100)),(buf2(1),moves(200))
       common /chrset/ alpha(46)
       equivalence (period,alpha(42)),(blank,alpha(44))

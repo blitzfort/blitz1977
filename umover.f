@@ -2,14 +2,14 @@
 c
 c     ******************************************************************
 c     *                                                                *
-c     *      umover is used to unmake all moves on the game board.     *
+c     *      umover is used to unmake allmoves on the game board.     *
 c     *  it restores the board to the position before the current      *
 c     *  move was made.                                                *
 c     *                                                                *
 c     ******************************************************************
 c
 c
-c    type$:  1 => normal move
+c    type$:  1 => normalmove
 c            2 => castle king-side
 c            3 => castle queen-side
 c            4 =) en passant pawn capture
@@ -18,14 +18,14 @@ c
       implicit integer (a-z)
       logical pmoved, moved
       common /board/ board(120)
-      common /colr cm/ color
+      common /colrcm/ color
       common /depth/ sdepth, depth, ply
       common /info/ from$, to$, type$, propc$, cappc$
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /castcm/ pmoved(3,2), moved(3,30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /cbias/ cbias(2)
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
       common /mscore/ sscore, mscore, pscore, tscore
 c
 c------------------------------< initialize.
@@ -52,7 +52,7 @@ c
 200   continue
       go to (1,2,4,6,7),type$
 c
-c------------------------------< retract normal move
+c------------------------------< retract normalmove
 c
 1     continue
       board(from$)=board(to$)

@@ -21,17 +21,17 @@ c
       implicit integer (a-z)
       logical mated, failed
       common /board/ board(120)
-      common /hash cm/ random(100,13), hboard
+      common /hashcm/ random(100,13), hboard
       common /htable/ hsize, htable(32768)
       common /srchcm/ value(30),  from(30), to(30), type(30), cappc(30)
       common /depth/ sdepth, depth, ply
-      common /move cm/ side, player, square, mpiece
-      common /mov cnt/ npmovs, nomovs
+      common /movecm/ side, player, square, mpiece
+      common /movcnt/ npmovs, nomovs
       common /window/ window(2)
       common /statcm/ nodes(30), times(30), aborts(30), tnodes, snodes,
      *                 hashes, pright
       common /mated/ mated(30)
-      common /prev mv/ prevmv(6)
+      common /prevmv/ prevmv(6)
 c
 c------------------------------< hash the current position to get the
 c------------------------------< pointer to the hash table.

@@ -43,7 +43,7 @@ c
       common /timecm/  gmoves, gelap, smoves, selap, surpls, cputim,
      *                  cquery, pelap, oelap, psec1, psec2, osec1,
      *                  osec2, avgtim, expect, fsec1
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /chrset/ alpha(46)
       equivalence (d,alpha(4)),(l,alpha(12)),(t,alpha(20)),(e,alpha(5)),
      *(c,alpha(3)),(blank,alpha(44)),(quest,alpha(43)),(q,alpha(17)),

@@ -15,7 +15,7 @@ c
       implicit integer (a-z)
       logical easy
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /depth/ sdepth, depth, ply
       common /trace/ trace(32,30)

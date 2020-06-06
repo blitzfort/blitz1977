@@ -3,7 +3,7 @@ c
 c     ******************************************************************
 c     *                                                                *
 c     *      castle is used to generate all castle type moves,         *
-c     *  castle only generates legal moves, unlike the regular move    *
+c     *  castle only generates legalmoves, unlike the regular move    *
 c     *  generators which may generate moves leaving the king in       *
 c     *  check.  subroutine 'attack' is used to make sure that the     *
 c     *  king will not pass over a square attacked by the enemy when   *
@@ -13,15 +13,15 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical attack, pmoved, moved, in chk
+      logical attack, pmoved, moved, inchk
       common /board/ board(120)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /castcm/ pmoved(3,2), moved(3,30)
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /types/ normal, castkg, castqn, enpass, promot
       common /depth/ sdepth, depth, ply
-      common /colr cm/ color
+      common /colrcm/ color
       common /cbias/ cbias(2)
 c
 c------------------------------< initialize.
@@ -30,7 +30,7 @@ c
 c
 c------------------------------< if in check, castling is ille6al.
 c
-      if(in chk(ply)) go to 9999
+      if(inchk(ply)) go to 9999
 c
 c------------------------------< if the king has moved, castling is
 c------------------------------< not legal.

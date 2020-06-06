@@ -19,7 +19,7 @@ c
       common /board/ board(120)
       common /dup/ bdsave(8,130), point
       common /depth/ sdepth, depth, ply
-      common /rpt cm/ rmoves(2)
+      common /rptcm/ rmoves(2)
 c
 c------------------------------< initialize.
 c

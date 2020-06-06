@@ -16,14 +16,14 @@ c
       logical ppass, opass, attack
       common /board/ board(120)
       common /mscore/ sscore, mscore, pscore, tscore
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /pawns/ pfirst(10), plast(10), pcount(10), ppass(10),
      *               ofirst(10), olast(10), ocount(10), opass(10),
      *               arank, afile
       common /pfiles/ pfiles(10), pranks(9)
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
       common /pieces/ nppwns, nppcs, pqueen, nopwns, nopcs, oqueen
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
 c
 c------------------------------< initialize.

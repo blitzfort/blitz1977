@@ -63,7 +63,7 @@ c     define file 1(600,32,u,iav)
       logical easy
       logical repchk, eboard, englsh, temp
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /srchcm/ value(30), from(30), to(30), type(30), cappc(30)
       common /killmv/ killmv(20,30)
       common /buffer/ text(80)
@@ -72,32 +72,32 @@ c     define file 1(600,32,u,iav)
       common /tflag/ tflag
       common /trcecm/ strace(32)
       common /info/ from$, to$, type$, propc$, cappc$
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /timecm/ gmoves, gelap, smoves, selap, surpls, cputim,
      *                 cquery, pelap, oelap, psec1, psec2, osec1,
      *                 osec2, avgtim, expect, fsec1
       common /mode/ tmode, smode, pondr,  foundm, matcmd
 ccccc 'pondr' doesn't match other modules which has pndrng.
       common /namecm/ name(5)
-      common /colr cm/ color
+      common /colrcm/ color
       common /chrset/ alpha(46)
       equivalence (blank,alpha(44))
       equivalence (g,alpha(7)),(o,alpha(15)),(y,alpha(25))
-      common /mov cnt/ npmovs, nomovs
-      common /prev mv/ prevmv(6)
+      common /movcnt/ npmovs, nomovs
+      common /prevmv/ prevmv(6)
       common /over/ over
       common /easy/ easy, easyv
       common /predcm/ ptext(30), pmove, ptype$, pfrom$, pto$
-      common /l move/ lmovep, lmoveo
+      common /lmove/ lmovep, lmoveo
       common /dup/ bdsave(1040), point
-      common /rpt cm/ rmoves(2)
+      common /rptcm/ rmoves(2)
       common /mscore/ sscore, mscore, pscore, tscore
-      common /piec cm/ pieces(6)
+      common /pieccm/ pieces(6)
       common /eval/ eval, peval
       common /autos/ autos
       common /beep/ beep
       common /eboard/ eboard, lbrack, rbrack
-      common /typ ntn/ englsh
+      common /typntn/ englsh
       common /return/ return
 c
 c------------------------------< determine color desired and
@@ -312,7 +312,7 @@ c
           player=1
           ply=1
           mtype=0
-          call mover
+          callmover
           if(check(-1)) mtype=1
           call umover
           if(value(1) .eq. 999998) mtype=2

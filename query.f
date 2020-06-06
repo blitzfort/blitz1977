@@ -16,7 +16,7 @@ c     ******************************************************************
 c
       implicit integer (a-z)
       logical cputim, cquery, eboard
-      common /mov cnt/ npmovs, nomovs
+      common /movcnt/ npmovs, nomovs
       common /chrset/ alpha(46)
       equivalence (c,alpha(3)),(d,alpha(4)),(p,alpha(16))
       common /timecm/ gmoves, gelap, smoves, selap, surpls, cputim,

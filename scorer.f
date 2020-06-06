@@ -22,8 +22,8 @@ c
       common /pawns/ pfirst(10), plast(10), pcount(10), ppass(10),
      *               ofirst(10), olast(10), ocount(10), opass(10),
      *               arank, afile
-      common /k loc cm/ pkingl, prank, pfile, okingl, orank, ofile
-      common /scor cm/ sign, square, rank, file
+      common /kloc/ pkingl, prank, pfile, okingl, orank, ofile
+      common /scorcm/ sign, square, rank, file
       common /mscore/ sscore, mscore, pscore, tscore
       common /castcm/ pmoved(3,2), moved(3,30)
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)

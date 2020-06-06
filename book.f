@@ -4,7 +4,7 @@ c     ******************************************************************
 c     *                                                                *
 c     *      book search the chess library of book moves for a         *
 c     *  response to the opponent's last move.  in most cases, there   *
-c     *  will be several moves to choose from.  the program will choose*
+c     *  will be severalmoves to choose from.  the program will choose*
 c     *  a random move ignoring any 'poor' or '?' type moves that may  *
 c     *  be present.  this feature provides variety so that it is      *
 c     *  more difficult to find an area of weak play and captitalize   *
@@ -18,18 +18,18 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical in book
+      logical inbook
 c     define file 3(5000,40,u,iav)
       common /tree/ moves(2000),dummy(150)
       common /trcecm/ strace(32)
-      common /prev mv/ prevmv(6)
-      common /mov cnt/ npmovs, nomovs
-      common /colr cm/ color
+      common /prevmv/ prevmv(6)
+      common /movcnt/ npmovs, nomovs
+      common /colrcm/ color
       common /statcm/ nodes(30), times(30), aborts(30), tnodes, snodes,
      *                  hashes, pright
       common /types/ normal, castkg, castqn, enpass, promot
       common /info/ from$, to$, type$, propc$, cappc$
-      common /bookcm/ in book, key
+      common /bookcm/ inbook, key
       common /return/ return
 c
 c------------------------------< if it is the first move and the
@@ -62,7 +62,7 @@ c
           if(from$.eq.prevmv(4) .and. to$.eq.prevmv(5)) go to 4
 2     continue
 3     continue
-      in book=.false.
+      inbook=.false.
       return=0
       return
 4     continue

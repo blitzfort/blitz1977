@@ -15,7 +15,7 @@ c     *                                                                *
 c     *      pppp = promotion piece for pawn promotions (0=none)       *
 c     *                                                                *
 c     *      tttt = move type as fowlows:                              *
-c     *             1 = normal move                                    *
+c     *             1 = normalmove                                    *
 c     *             2 = ca8tle king-side                               *
 c     *             3 = castle queen-side                              *
 c     *             4 = enpassant pawn capture                         *

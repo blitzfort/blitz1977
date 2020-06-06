@@ -15,7 +15,7 @@ c
       logical englsh
       logical tmode, smode, pndrng, foundm, matchd
       logical broke, autos
-      logical in book
+      logical inbook
       real ratio
       logical easy
       logical abort
@@ -30,17 +30,17 @@ c
       common /limits/ fdepth, ftime
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
       common /types/ normal, castkg, castqn, enpass, promot
-      common /colr cm/ color
-      common /prev mv/ prevmv(6)
-      common /mov cnt/ npmovs, nomovs
+      common /colrcm/ color
+      common /prevmv/ prevmv(6)
+      common /movcnt/ npmovs, nomovs
       common /chrset/ alpha(46)
       common /over/ over
       common /timecm/ gmoves, gelap, smoves, selap, surpls, cputim,
      *                 cquery, pelap, oelap, psec1, psec2, osec1,
      *                 osec2, avgtim, expect, fsec1
       common /cbias/ cbias(2)
-      common /piec cm/ pieces(6)
-      common /typ ntn/ englsh
+      common /pieccm/ pieces(6)
+      common /typntn/ englsh
       common /mode/ tmode, smode, pndrng, foundm, matchd
       common /tflag/ tflag
       common /trcecm/ strace(32)
@@ -49,16 +49,16 @@ c
      *               arank, afile
       common /pfiles/ pfiles(10), pranks(9)
       common /broke/ broke
-      common /bookcm/ in book, key
+      common /bookcm/ inbook, key
       common /ratio/ ratio
       common /ratecm/ prate, orate
       common /easy/ easy, easyv
       common /killmv/ killmv(20,30)
       common /statcm/ nodes(30), times(30), aborts(30), tnodes, snodes,
      *                 hashes, pright
-      common /l move/ lmovep, lmoveo
+      common /lmove/ lmovep, lmoveo
       common /dup/ bdsave(1040), point
-      common /draw cm/ drawsc
+      common /drawcm/ drawsc
       common /abort/ abort
       common /mscore/ sscore, mscore, pscore, tscore
       common /eval/ eval, peval
@@ -107,7 +107,7 @@ c
       data pfiles / 0, 0,  0, 10, 12,  15, 8,  0, 0,  0  /
       data pranks / 0, 0,  0, 1, 4, 1,  1, 1,  1  /
       data broke / .false. /
-      data in book / .false. /
+      data inbook / .false. /
       data key / 1 /
       data ratio / 5.0 /
       data prate, orate / 1670, 1500 /

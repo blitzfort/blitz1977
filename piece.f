@@ -19,13 +19,13 @@ c     *                                                                *
 c     ******************************************************************
 c
       implicit integer (a-z)
-      logical in chk, giv chk
+      logical inchk, givchk
       common /board/ board(120)
       common /tree/ moves(2000), first(30), last(30), which(30),
-     *              in chk(30), giv chk(30)
+     *              inchk(30), givchk(30)
       common /depth/ sdepth, depth, ply
       common /movdir/ movdir(28), piecem(28), begin(6), end(6)
-      common /move cm/ side, player, square, mpiece
+      common /movecm/ side, player, square, mpiece
       common /types/ normal, castkg, castqn, enpass, promot
       common /return/ return
 c
@@ -52,8 +52,8 @@ c
               if(cpiece .eq. 6) go to 9998
               if(ply.gt.depth  .and.
      *               cpiece.eq.0  .and.
-     *                   .not. in chk(ply) .and.
-     *                       .not. giv chk(ply)) go to 2000
+     *                   .not. inchk(ply) .and.
+     *                       .not. givchk(ply)) go to 2000
 c
 c------------------------------< this move is legal. enter it into
 c------------------------------< the move list for consideration
